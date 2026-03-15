@@ -1,3 +1,4 @@
+import {LatestPosts} from "@/components/latest-posts";
 import "./homepage.css";
 
 export default async function Home() {
@@ -19,12 +20,7 @@ export default async function Home() {
           <a href="#">Support the Commune!</a>
         </nav>
 
-        <div id="posts">     
-          <h2>News</h2>     
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, inventore?
-          </p>
-        </div>
+        <LatestPosts/>
     </main>
   );
 }

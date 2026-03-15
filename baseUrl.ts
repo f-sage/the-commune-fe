@@ -1,0 +1,1 @@
+export const BASE_WP_URL = process.env.BASE_WP_URL;
