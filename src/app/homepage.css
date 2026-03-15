@@ -1,0 +1,63 @@
+/* LAYOUT */
+main {
+    display: grid;
+    grid-template: 
+    "links"
+    "heading"
+    "description"
+    "posts";
+
+    justify-items: center;
+}
+
+@media only screen and (max-width:900px){
+    main {
+    grid-template-areas: 
+    "heading"
+    "links"
+    "description"
+    "posts"
+    }
+}
+
+h1 {
+    grid-area: heading;
+}
+
+nav {
+    grid-area: links;
+}
+
+#posts{
+    grid-area: posts;
+}
+
+#description{
+    grid-area: description;
+}
+
+/* DESCRIPTION */
+#description p{
+    max-width: 60ch;
+    text-align: justify;
+    text-align-last: left;
+}
+
+#description{
+    display: grid;
+}
+
+/* DETAILS LINK */
+#details-link{
+    justify-self: end;
+}
+
+/* NAVBAR */
+nav a{
+    text-decoration: none;
+}
+
+nav a:not(:last-child)::after{
+    content: '•';
+    margin: 0 1em;
+}
