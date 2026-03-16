@@ -1,6 +1,6 @@
 import { LatestPosts } from "@/components/latest-posts";
 import "./homepage.css";
-import { liveMapUrl, discordInviteUrl, donateUrl } from "@/content/links";
+import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
 
 export default async function Home() {
   return (
