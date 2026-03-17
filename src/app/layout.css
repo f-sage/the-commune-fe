@@ -47,3 +47,8 @@ footer ul li:not(:last-child)::after {
     content: "";
   }
 }
+
+main {
+  display: grid;
+  justify-items: center;
+}
