@@ -50,5 +50,5 @@ footer ul li:not(:last-child)::after {
 
 main {
   display: grid;
-  justify-items: center;
+  justify-self: center;
 }
