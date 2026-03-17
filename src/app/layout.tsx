@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./layout.css"
+import "./layout.css";
 
 export const metadata: Metadata = {
   title: "The Commune",
@@ -14,11 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
-
+      <body className={`antialiased`}>
+        <main>{children}</main>
         <footer>
           <hr />
           <ul>
@@ -28,7 +25,6 @@ export default function RootLayout({
             <li>2026</li>
           </ul>
         </footer>
-
       </body>
     </html>
   );

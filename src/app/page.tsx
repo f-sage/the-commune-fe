@@ -4,7 +4,7 @@ import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
 
 export default async function Home() {
   return (
-    <main>
+    <>
       <h1>Welcome to The Commune!</h1>
 
       <div id="description">
@@ -28,6 +28,6 @@ export default async function Home() {
       </nav>
 
       <LatestPosts />
-    </main>
+    </>
   );
 }
