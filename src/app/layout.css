@@ -16,6 +16,7 @@ footer {
   align-items: center;
   height: fit-content;
   align-self: flex-end;
+  margin-top: 1.8em;
 }
 
 footer hr {
