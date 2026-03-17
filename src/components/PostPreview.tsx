@@ -9,7 +9,7 @@ export const PostPreview = ({ post }: { post: WordpressPost }) => {
         <a href={`/post/${post.id}`}>{post.title.rendered}</a>
       </h3>
       <div dangerouslySetInnerHTML={content} />
-      <div>{createdAt}</div>
+      <time dateTime={post.date}>{createdAt}</time>
     </article>
   );
 };
