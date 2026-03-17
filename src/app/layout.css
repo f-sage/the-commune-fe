@@ -20,6 +20,9 @@ footer {
 
 footer hr {
   width: 100%;
+  border: none;
+  height: 1px;
+  background-color: black;
 }
 
 footer ul {
