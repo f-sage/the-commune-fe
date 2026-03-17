@@ -1,6 +1,6 @@
 import { Post } from "./post";
 import "./latest-posts.css";
-import type { WordpressPost } from "@/models/Post";
+import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 
 export const LatestPosts = async () => {
   const baseWordpressUrl = process.env.BASE_WP_URL;
@@ -10,9 +10,9 @@ export const LatestPosts = async () => {
     <div id="posts">
       <h2>News</h2>
 
-      {
-        posts?.map((item: WordpressPost) => <Post key={item.id} post={item} />)
-      }
+      {posts?.map((item: WordpressPost) => (
+        <Post key={item.id} post={item} />
+      ))}
     </div>
   );
 };
