@@ -1,6 +1,6 @@
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 
-export const Post = ({ post }: { post: WordpressPost }) => {
+export const PostPreview = ({ post }: { post: WordpressPost }) => {
   const content = { __html: post.excerpt.rendered };
   const createdAt = new Date(post.date).toDateString();
   return (
@@ -14,4 +14,4 @@ export const Post = ({ post }: { post: WordpressPost }) => {
   );
 };
 
-export default Post;
+export default PostPreview;

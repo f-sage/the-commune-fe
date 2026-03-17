@@ -1,4 +1,4 @@
-import { LatestPosts } from "@/components/latest-posts";
+import { LatestPosts } from "@/components/LatestPosts";
 import "./homepage.css";
 import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
 

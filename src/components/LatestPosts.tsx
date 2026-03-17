@@ -1,4 +1,4 @@
-import { Post } from "./post";
+import { PostPreview } from "./PostPreview";
 import "./latest-posts.css";
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 
@@ -11,7 +11,7 @@ export const LatestPosts = async () => {
       <h2>News</h2>
 
       {posts?.map((item: WordpressPost) => (
-        <Post key={item.id} post={item} />
+        <PostPreview key={item.id} post={item} />
       ))}
     </div>
   );
