@@ -1,30 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin%20Slab:700|Playwrite%20DE%20Grund:400');
+@import url("https://fonts.googleapis.com/css?family=Josefin%20Slab:700|Playwrite%20DE%20Grund:400");
 
 /* FONTS */
 body {
-  font-family: 'Playwrite DE Grund';
+  font-family: "Playwrite DE Grund", sans-serif;
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Josefin Slab';
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Josefin Slab", sans-serif;
   font-weight: 700;
 }
 
-html {font-size: 100%;} /* 16px */
+html {
+  font-size: 100%;
+} /* 16px */
 
-h1 {font-size: 4.210rem; /* 67.36px */}
+h1 {
+  font-size: 4.21rem; /* 67.36px */
+}
 
-h2 {font-size: 2.442rem; /* 39.04px */}
+h2 {
+  font-size: 2.442rem; /* 39.04px */
+}
 
-h3 {font-size: 1.954rem; /* 31.2px */}
+h3 {
+  font-size: 1.954rem; /* 31.2px */
+}
 
-h4 {font-size: 1.563rem; /* 24.96px */}
+h4 {
+  font-size: 1.563rem; /* 24.96px */
+}
 
-h5 {font-size: 1.250rem; /* 20px */}
+h5 {
+  font-size: 1.25rem; /* 20px */
+}
 
-@media only screen and (max-width:900px){
-    h1 {font-size: 3.210rem;}
-    h2 {font-size: 3rem;}
-    h3 {font-size: 2.1rem;}
+@media only screen and (max-width: 900px) {
+  h1 {
+    font-size: 3.21rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.1rem;
+  }
 }
