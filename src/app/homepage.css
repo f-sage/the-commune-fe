@@ -1,63 +1,78 @@
 /* LAYOUT */
 main {
-    display: grid;
-    grid-template: 
+  display: grid;
+  grid-template:
     "links"
     "heading"
     "description"
     "posts";
 
-    justify-items: center;
+  justify-items: center;
 }
 
-@media only screen and (max-width:900px){
-    main {
-    grid-template-areas: 
-    "heading"
-    "links"
-    "description"
-    "posts"
-    }
+@media only screen and (max-width: 900px) {
+  main {
+    grid-template-areas:
+      "heading"
+      "links"
+      "description"
+      "posts";
+  }
 }
 
 h1 {
-    grid-area: heading;
+  grid-area: heading;
 }
 
-nav {
-    grid-area: links;
+#links {
+  grid-area: links;
 }
 
-#posts{
-    grid-area: posts;
+#posts {
+  grid-area: posts;
 }
 
-#description{
-    grid-area: description;
+#description {
+  grid-area: description;
 }
 
 /* DESCRIPTION */
-#description p{
-    max-width: 60ch;
-    text-align: justify;
-    text-align-last: left;
+#description p {
+  max-width: 60ch;
+  text-align: justify;
+  text-align-last: left;
 }
 
-#description{
-    display: grid;
+#description {
+  display: grid;
 }
 
 /* DETAILS LINK */
-#details-link{
-    justify-self: end;
+#details-link {
+  justify-self: end;
 }
 
-/* NAVBAR */
-nav a{
-    text-decoration: none;
+/* EXTERNAL LINKS */
+#links {
+  display: flex;
+  list-style: none;
+  gap: 1em;
 }
 
-nav a:not(:last-child)::after{
-    content: '•';
-    margin: 0 1em;
+#links a {
+  text-decoration: none;
+}
+
+#links li:not(:last-child)::after {
+  content: "•";
+  margin: 0 1em;
+}
+
+@media only screen and (max-width: 700px) {
+  #links {
+    flex-direction: column;
+  }
+  #links li:not(:last-child)::after {
+    content: "";
+  }
 }

@@ -21,11 +21,17 @@ export default async function Home() {
         </a>
       </div>
 
-      <nav id="links">
-        <a href={liveMapUrl}>LiveMap</a>
-        <a href={discordInviteUrl}>Join our Discord to play!</a>
-        <a href={donateUrl}>Support the Commune!</a>
-      </nav>
+      <ul id="links">
+        <li>
+          <a href={liveMapUrl}>LiveMap</a>
+        </li>
+        <li>
+          <a href={discordInviteUrl}>Join our Discord to play!</a>
+        </li>
+        <li>
+          <a href={donateUrl}>Support the Commune!</a>
+        </li>
+      </ul>
 
       <LatestPosts />
     </>
