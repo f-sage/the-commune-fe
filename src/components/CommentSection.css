@@ -1,0 +1,15 @@
+.comment-details {
+  display: flex;
+  align-content: space-between;
+  align-self: flex-start;
+  justify-self: flex-start;
+  gap: 5em;
+  flex-wrap: wrap;
+}
+
+#comment-section {
+  display: grid;
+  max-width: 60ch;
+  justify-self: start;
+  margin-top: 2em;
+}
