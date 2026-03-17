@@ -1,5 +1,5 @@
 import { PostPreview } from "./PostPreview";
-import "./latest-posts.css";
+import "./LatestPosts.css";
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 
 export const LatestPosts = async () => {
