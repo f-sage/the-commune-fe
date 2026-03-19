@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  gap: 1em;
+  gap: 1.5em;
   justify-content: end;
   font-weight: 200;
 }
