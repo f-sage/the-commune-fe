@@ -17,12 +17,12 @@ export const Expandable: React.FC<ExpandableProps> = ({ label, children }) => {
   return (
     <div className="expandable">
       <div>
-        <span>{label}</span>
         <button
           aria-label={buttonAriaLabel}
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
         >
+          {label}
           <span className="material-icons">{buttonIcon}</span>
         </button>
       </div>

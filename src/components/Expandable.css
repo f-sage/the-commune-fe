@@ -10,11 +10,11 @@
 }
 
 .expandable button {
+  color: inherit;
   background: none;
   border: medium none;
-  color: #26589f;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 0.3em;
+  font-family: inherit;
+  font-size: inherit;
   margin: 1em;
   padding: 0;
   cursor: pointer;
@@ -23,4 +23,5 @@
 
 .expandable button span {
   font-size: 1rem;
+  color: #26589f;
 }
