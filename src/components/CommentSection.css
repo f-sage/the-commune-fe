@@ -13,3 +13,7 @@
   justify-self: start;
   margin-top: 2em;
 }
+
+#no-comments {
+  font-style: italic;
+}

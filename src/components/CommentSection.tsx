@@ -7,6 +7,8 @@ export const CommentSection = ({
 }: {
   comments: WordpressComment[];
 }) => {
+  console.log(comments);
+  if (!comments.length) return <div id="no-comments">No comments yet...</div>;
   return (
     <article id="comment-section">
       <h2>Comments</h2>
