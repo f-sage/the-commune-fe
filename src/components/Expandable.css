@@ -24,4 +24,5 @@
 .expandable button span {
   font-size: 1rem;
   color: #26589f;
+  vertical-align: -2px;
 }
