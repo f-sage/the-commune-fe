@@ -1,0 +1,27 @@
+main {
+  display: grid;
+  justify-content: center;
+  max-width: 900px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+ul li {
+  padding: 1em 0;
+}
+ul li p {
+  max-width: 30ch;
+}
