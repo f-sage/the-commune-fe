@@ -8,3 +8,19 @@
 .expanded {
   max-height: 300px;
 }
+
+.expandable button {
+  background: none;
+  border: medium none;
+  color: #26589f;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 0.3em;
+  margin: 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.expandable button span {
+  font-size: 1rem;
+}
