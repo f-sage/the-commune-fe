@@ -47,9 +47,3 @@ footer ul li:not(:last-child)::after {
     content: "";
   }
 }
-
-main {
-  display: grid;
-  justify-self: center;
-  max-width: 900px;
-}

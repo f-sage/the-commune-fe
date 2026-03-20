@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin%20Slab:700|Playwrite%20DE%20Grund:400");
+@import url("@radix-ui/themes/styles.css");
 
 /* FONTS */
 body {
