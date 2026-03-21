@@ -1,4 +1,4 @@
-import { Box, Card, Heading, Link, Separator, Text } from "@radix-ui/themes";
+import { Box, Heading, Link, Separator, Text } from "@radix-ui/themes";
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 import "./PostPreview.css";
 
