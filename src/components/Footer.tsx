@@ -1,9 +1,10 @@
+import { Separator } from "@radix-ui/themes";
 import "./Footer.css";
 
 export const Footer = () => {
   return (
     <footer>
-      <hr />
+      <Separator my="3" size="4" />
       <ul>
         <li>
           Maintained by <em>TheButterMan</em>
