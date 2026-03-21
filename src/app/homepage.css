@@ -79,4 +79,5 @@ h1 {
 /* LOUD HEADING */
 h1 {
   font-size: 4.21rem; /* 67.36px */
+  text-align: center;
 }
