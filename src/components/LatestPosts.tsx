@@ -1,5 +1,6 @@
 import { PostPreview } from "./PostPreview";
 import "./LatestPosts.css";
+import { Flex } from "@radix-ui/themes";
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 
 export const LatestPosts = async () => {
@@ -13,9 +14,11 @@ export const LatestPosts = async () => {
     <div id="posts">
       <h2>News</h2>
 
-      {posts?.map((item: WordpressPost) => (
-        <PostPreview key={item.id} post={item} />
-      ))}
+      <Flex gap="3" direction="column">
+        {posts?.map((item: WordpressPost) => (
+          <PostPreview key={item.id} post={item} />
+        ))}
+      </Flex>
     </div>
   );
 };

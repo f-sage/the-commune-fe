@@ -1,3 +1,4 @@
+import { Flex } from "@radix-ui/themes";
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 import PostPreview from "@/components/PostPreview";
 
@@ -7,12 +8,14 @@ export default async function PostsPage() {
   const posts = await res.json();
 
   return (
-    <>
+    <Flex direction="column" align="center">
       <h1>Posts</h1>
 
-      {posts?.map((item: WordpressPost) => (
-        <PostPreview key={item.id} post={item} />
-      ))}
-    </>
+      <Flex gap="3" direction="column">
+        {posts?.map((item: WordpressPost) => (
+          <PostPreview key={item.id} post={item} />
+        ))}
+      </Flex>
+    </Flex>
   );
 }
