@@ -1,11 +1,12 @@
+import { Link } from "@radix-ui/themes";
 import "./Navbar.css";
 
 export const Navbar = () => {
   return (
     <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/posts">News</a>
+      <Link href="/">Home</Link>
+      <Link href="/about">About</Link>
+      <Link href="/posts">News</Link>
     </nav>
   );
 };
