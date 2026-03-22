@@ -11,7 +11,9 @@ export const LatestPosts = async () => {
   const posts = await res.json();
   return (
     <div id="posts">
-      <h2>News</h2>
+      <h2>
+        <a href="/posts">News</a>
+      </h2>
 
       {posts?.map((item: WordpressPost) => (
         <PostPreview key={item.id} post={item} />
