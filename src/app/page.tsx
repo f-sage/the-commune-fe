@@ -1,5 +1,6 @@
 import { LatestPosts } from "@/components/LatestPosts";
 import "./homepage.css";
+import { Link } from "@radix-ui/themes";
 import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
 
 export default async function Home() {
@@ -16,20 +17,20 @@ export default async function Home() {
           projects.
         </p>
 
-        <a id="details-link" href="/about">
+        <Link id="details-link" href="/about">
           Server details
-        </a>
+        </Link>
       </div>
 
       <ul id="links">
         <li>
-          <a href={liveMapUrl}>LiveMap</a>
+          <Link href={liveMapUrl}>LiveMap</Link>
         </li>
         <li>
-          <a href={discordInviteUrl}>Join our Discord to play!</a>
+          <Link href={discordInviteUrl}>Join our Discord to play!</Link>
         </li>
         <li>
-          <a href={donateUrl}>Support the Commune!</a>
+          <Link href={donateUrl}>Support the Commune!</Link>
         </li>
       </ul>
 

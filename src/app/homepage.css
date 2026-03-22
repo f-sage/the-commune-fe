@@ -58,10 +58,6 @@ h1 {
   gap: 1em;
 }
 
-#links a {
-  text-decoration: none;
-}
-
 #links li:not(:last-child)::after {
   content: "•";
   margin: 0 1em;
