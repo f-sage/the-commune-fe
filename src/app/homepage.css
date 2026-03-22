@@ -55,11 +55,8 @@ h1 {
 #links {
   display: flex;
   list-style: none;
+  /*todo*/
   gap: 1em;
-}
-
-#links a {
-  text-decoration: none;
 }
 
 #links li:not(:last-child)::after {
