@@ -8,7 +8,7 @@ export default async function PostsPage() {
 
   return (
     <>
-      <h1>Posts</h1>
+      <h1>News</h1>
 
       {posts?.map((item: WordpressPost) => (
         <PostPreview key={item.id} post={item} />
