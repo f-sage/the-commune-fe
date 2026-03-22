@@ -1,0 +1,11 @@
+.post {
+  padding: 2em 0.5em;
+}
+
+.post h3 {
+  margin-top: 0;
+}
+
+.post:not(:last-child) {
+  border-bottom: 1px solid #aeaeae;
+}
