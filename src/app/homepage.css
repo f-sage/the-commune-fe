@@ -55,11 +55,6 @@ h1 {
 #links {
   display: flex;
   list-style: none;
-  gap: 1em;
-}
-
-#links a {
-  text-decoration: none;
 }
 
 #links li:not(:last-child)::after {
@@ -70,6 +65,7 @@ h1 {
 @media only screen and (max-width: 700px) {
   #links {
     flex-direction: column;
+    gap: 1em;
   }
   #links li:not(:last-child)::after {
     content: "";

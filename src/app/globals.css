@@ -58,3 +58,12 @@ small {
 p {
   max-width: 60ch;
 }
+
+a {
+  color: #343434;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: black;
+}
