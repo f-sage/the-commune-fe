@@ -1,7 +1,7 @@
 /* SPACING */
 body {
   margin: 0;
-  padding: 1em 2em 0;
+  padding: 1em 2em;
 
   display: grid;
   min-height: 100vh;
@@ -37,4 +37,9 @@ h1 .subtitle {
 
 h1 .loud {
   text-shadow: 2px 2px var(--accent-color);
+}
+
+#wrapper {
+  padding: 1em;
+  border: 1px solid var(--text-color);
 }
