@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+DE+Grund:wght@100..400&display=swap");
 
 /* FONTS */
+
+html {
+  --text-font: "Playwrite DE Grund", sans-serif;
+  --heading-font: "Playwrite AT", sans-serif;
+}
+
 body {
-  font-family: "Playwrite DE Grund", sans-serif;
+  font-family: var(--text-font);
   font-weight: 400;
 }
 
@@ -11,7 +17,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Playwrite AT", sans-serif;
+  font-family: var(--heading-font);
   font-weight: 700;
 }
 
