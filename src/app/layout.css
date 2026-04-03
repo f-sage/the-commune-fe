@@ -13,3 +13,20 @@ main {
   justify-self: center;
   max-width: 900px;
 }
+
+/* COLORS */
+
+html {
+  --text-color: #445016;
+  --background-color: #c6e1ac;
+  --accent-color: #e5ff80ff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  text-shadow: 2px 2px var(--accent-color);
+}
