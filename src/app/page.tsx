@@ -5,7 +5,10 @@ import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
 export default async function Home() {
   return (
     <>
-      <h1>Welcome to The Commune!</h1>
+      <h1>
+        <div className="subtitle">Welcome to</div>
+        <div className="loud">The Commune</div>
+      </h1>
 
       <div id="description">
         <p>

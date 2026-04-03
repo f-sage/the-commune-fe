@@ -8,8 +8,11 @@ body {
   box-sizing: border-box;
 }
 
-main {
+#wrapper {
   display: grid;
+}
+
+main {
   justify-self: center;
   max-width: 900px;
 }
