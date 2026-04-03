@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin%20Slab:700|Playwrite%20DE%20Grund:400");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+DE+Grund:wght@100..400&display=swap");
 
 /* FONTS */
 body {
@@ -11,7 +11,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Josefin Slab", sans-serif;
+  font-family: "Playwrite AT", sans-serif;
   font-weight: 700;
 }
 
