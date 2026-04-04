@@ -44,6 +44,10 @@ h1 {
 
 #description {
   display: grid;
+
+  background-color: rgba(221, 233, 175, 0.42);
+  padding: 1em 1.5em;
+  border-radius: 3px;
 }
 
 /* DETAILS LINK */
@@ -75,4 +79,16 @@ h1 {
 /* LOUD HEADING */
 h1 {
   font-size: 4.21rem;
+}
+
+/* HERO */
+
+#hero {
+  margin-bottom: 3em;
+}
+
+#hero img {
+  opacity: 0.26;
+  z-index: -1;
+  object-fit: cover;
 }
