@@ -1,9 +1,19 @@
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 import "./PostPreview.css";
 
+const datetimeOptions = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+} as const;
+
 export const PostPreview = ({ post }: { post: WordpressPost }) => {
   const content = { __html: post.excerpt.rendered };
-  const createdAt = new Date(post.date).toDateString();
+  const createdAt = new Date(post.date).toLocaleDateString(
+    "en-US",
+    datetimeOptions,
+  );
+
   return (
     <article className="post">
       <h3>
