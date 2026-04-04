@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { LatestPosts } from "@/components/LatestPosts";
 import "./homepage.css";
 import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
@@ -25,11 +24,6 @@ export default async function Home() {
             Server details
           </a>
         </div>
-        <Image
-          alt="You too can live among beauty"
-          src="/banner.png"
-          layout="fill"
-        />
       </header>
 
       <ul id="links">
