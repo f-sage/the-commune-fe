@@ -1,7 +1,6 @@
 /* FOOTER */
 footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: fit-content;
@@ -10,10 +9,7 @@ footer {
 }
 
 footer hr {
-  width: 100%;
-  border: none;
-  height: 1px;
-  background-color: #aeaeae;
+  width: 35%;
 }
 
 footer ul {
@@ -36,4 +32,8 @@ footer ul li:not(:last-child)::after {
   footer ul li:not(:last-child)::after {
     content: "";
   }
+}
+
+footer {
+  color: var(--lowkey-color);
 }

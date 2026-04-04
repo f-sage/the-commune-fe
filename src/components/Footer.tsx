@@ -5,11 +5,10 @@ export const Footer = () => {
     <footer>
       <hr />
       <ul>
-        <li>
-          Maintained by <em>TheButterMan</em>
-        </li>
+        <li>The Commune</li>
         <li>2026</li>
       </ul>
+      <hr />
     </footer>
   );
 };
