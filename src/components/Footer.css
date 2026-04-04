@@ -19,18 +19,23 @@ footer ul {
 }
 
 footer ul li:not(:last-child)::after {
-  content: "•";
   margin: 0 1em;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (width >= 700px) {
+  footer ul li:not(:last-child)::after {
+    content: "•";
+  }
+}
+
+@media only screen and (width < 700px) {
   footer ul {
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
   }
-  footer ul li:not(:last-child)::after {
-    content: "";
+  footer hr {
+    width: 10%;
   }
 }
 

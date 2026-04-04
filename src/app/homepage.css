@@ -62,11 +62,6 @@ h1 {
   height: 88px;
 }
 
-/* LOUD HEADING */
-h1 {
-  font-size: 4.21rem;
-}
-
 /* HERO */
 
 #hero {
@@ -110,4 +105,14 @@ body:before {
   color: var(--accent-highlighted-color);
   transform: translate(2px, 2px);
   box-shadow: 1px 1px var(--accent-color);
+}
+
+h1 .subtitle {
+  font-size: 4vmin;
+  font-family: var(--text-font);
+}
+
+h1 .loud {
+  font-size: 10vmin;
+  text-shadow: 2px 2px var(--accent-color);
 }

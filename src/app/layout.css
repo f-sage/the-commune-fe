@@ -35,15 +35,6 @@ body {
   color: var(--text-color);
 }
 
-h1 .subtitle {
-  font-size: 2rem;
-  font-family: var(--text-font);
-}
-
-h1 .loud {
-  text-shadow: 2px 2px var(--accent-color);
-}
-
 #wrapper {
   padding: 1em;
   border: 1px solid var(--text-color);
