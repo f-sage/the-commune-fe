@@ -25,6 +25,7 @@ html {
   --accent-color: #e5ff80ff;
   --lowkey-color: #7a8844;
   --card-background: rgba(68, 80, 22, 0.16);
+  --accent-highlighted-color: #ecfab9;
 
   --radius: 5px;
 }

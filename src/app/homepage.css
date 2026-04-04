@@ -47,7 +47,7 @@ h1 {
   position: relative;
 
   background-color: rgba(221, 233, 175, 0.42);
-  padding: 1em 1.5em;
+  padding: 1em 1.5em 2em;
   border-radius: var(--radius);
 }
 
@@ -56,15 +56,10 @@ h1 {
   background-image: url("/leaf1.svg");
   background-size: cover;
   position: absolute;
-  bottom: -10px;
+  bottom: -35px;
   left: 3px;
   width: 180px;
   height: 88px;
-}
-
-/* DETAILS LINK */
-#details-link {
-  justify-self: end;
 }
 
 /* EXTERNAL LINKS */
@@ -99,12 +94,6 @@ h1 {
   margin-bottom: 3em;
 }
 
-#hero img {
-  opacity: 0.26;
-  z-index: -1;
-  object-fit: cover;
-}
-
 /* FIXED BACKGROUND IMAGE */
 body:before {
   background-image: url("/banner.png");
@@ -120,4 +109,26 @@ body:before {
   height: 100vh;
 
   background-size: cover;
+}
+
+.button-link {
+  color: var(--accent-color);
+  background-color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--accent-color);
+  padding: 0.8em;
+  width: fit-content;
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.button-link:hover,
+.button-link:active {
+  color: var(--accent-highlighted-color);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px var(--accent-color);
 }

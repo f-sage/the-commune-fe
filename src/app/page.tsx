@@ -20,8 +20,8 @@ export default async function Home() {
             community-driven projects.
           </p>
 
-          <a id="details-link" href="/about">
-            Server details
+          <a className="button-link" href={discordInviteUrl}>
+            Join our Discord community
           </a>
         </div>
       </header>
