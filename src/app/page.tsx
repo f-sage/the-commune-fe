@@ -1,6 +1,6 @@
 import { LatestPosts } from "@/components/LatestPosts";
 import "./homepage.css";
-import { discordInviteUrl, donateUrl, liveMapUrl } from "@/content/links";
+import { discordInviteUrl } from "@/content/links";
 
 export default async function Home() {
   return (
@@ -25,18 +25,6 @@ export default async function Home() {
           </a>
         </div>
       </header>
-
-      <ul id="links">
-        <li>
-          <a href={liveMapUrl}>LiveMap</a>
-        </li>
-        <li>
-          <a href={discordInviteUrl}>Join our Discord to play!</a>
-        </li>
-        <li>
-          <a href={donateUrl}>Support the Commune!</a>
-        </li>
-      </ul>
 
       <LatestPosts />
     </>
