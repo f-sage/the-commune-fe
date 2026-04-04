@@ -44,10 +44,22 @@ h1 {
 
 #description {
   display: grid;
+  position: relative;
 
   background-color: rgba(221, 233, 175, 0.42);
   padding: 1em 1.5em;
   border-radius: var(--radius);
+}
+
+#description:before {
+  content: " ";
+  background-image: url("/leaf1.svg");
+  background-size: cover;
+  position: absolute;
+  bottom: -10px;
+  left: 3px;
+  width: 180px;
+  height: 88px;
 }
 
 /* DETAILS LINK */
