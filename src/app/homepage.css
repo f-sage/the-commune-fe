@@ -62,27 +62,6 @@ h1 {
   height: 88px;
 }
 
-/* EXTERNAL LINKS */
-#links {
-  display: flex;
-  list-style: none;
-}
-
-#links li:not(:last-child)::after {
-  content: "•";
-  margin: 0 1em;
-}
-
-@media only screen and (max-width: 700px) {
-  #links {
-    flex-direction: column;
-    gap: 1em;
-  }
-  #links li:not(:last-child)::after {
-    content: "";
-  }
-}
-
 /* LOUD HEADING */
 h1 {
   font-size: 4.21rem;
