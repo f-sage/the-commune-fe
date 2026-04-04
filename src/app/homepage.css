@@ -62,6 +62,15 @@ h1 {
   height: 88px;
 }
 
+@media only screen and (width < 500px) {
+  #description {
+    padding-bottom: 15px;
+  }
+  #description:before {
+    bottom: -50px;
+  }
+}
+
 /* HERO */
 
 #hero {
