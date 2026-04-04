@@ -24,6 +24,9 @@ html {
   --background-color: #c6e1ac;
   --accent-color: #e5ff80ff;
   --lowkey-color: #7a8844;
+  --card-background: rgba(68, 80, 22, 0.16);
+
+  --radius: 5px;
 }
 
 body {

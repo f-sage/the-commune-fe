@@ -47,7 +47,7 @@ h1 {
 
   background-color: rgba(221, 233, 175, 0.42);
   padding: 1em 1.5em;
-  border-radius: 3px;
+  border-radius: var(--radius);
 }
 
 /* DETAILS LINK */
