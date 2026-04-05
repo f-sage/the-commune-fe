@@ -1,6 +1,7 @@
 import {
   separateTitleAndContent,
   stripMarkup,
+  textToHtmlMarkup,
 } from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
 import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
@@ -18,13 +19,16 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
   );
 
   let { title, content } = separateTitleAndContent(post.content);
-  content = content.trim();
+
   title = stripMarkup(title);
+
+  content = content.trim();
+  const contentAsHtml = textToHtmlMarkup(content);
 
   return (
     <article className="post">
       <h3>{title}</h3>
-      <p className="post-content">{content}</p>
+      <div dangerouslySetInnerHTML={{ __html: contentAsHtml }}></div>
       <time dateTime={post.timestamp}>{createdAt}</time>
     </article>
   );
