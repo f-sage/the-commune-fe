@@ -1,16 +1,16 @@
-import type { WP_REST_API_Post as WordpressPost } from "wp-types";
-import PostPreview from "@/components/PostPreview";
+import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+import { PostPreview } from "@/components/PostPreview";
+import { fetchDiscordPosts } from "@/helpers/fetchDiscordPosts";
 
+const MESSAGES_LIMIT = 50;
 export default async function PostsPage() {
-  const baseWordpressUrl = process.env.BASE_WP_URL;
-  const res = await fetch(`${baseWordpressUrl}/wp-json/wp/v2/posts`);
-  const posts = await res.json();
+  const posts = await fetchDiscordPosts(MESSAGES_LIMIT);
 
   return (
     <>
       <h1>News</h1>
 
-      {posts?.map((item: WordpressPost) => (
+      {posts?.map((item: DiscordMessage) => (
         <PostPreview key={item.id} post={item} />
       ))}
     </>
