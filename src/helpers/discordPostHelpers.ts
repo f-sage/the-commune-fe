@@ -43,3 +43,14 @@ export const textToHtmlMarkup = (text: string) => {
 
   return text;
 };
+
+export const htmlWithLineBreaksToParagraphs = (htmlWithLineBreaks: string) => {
+  const paragraphsAsStrings = htmlWithLineBreaks.split("\n");
+
+  for (let i = 0; i < paragraphsAsStrings.length; ++i) {
+    const str = paragraphsAsStrings[i];
+    paragraphsAsStrings[i] = `<p>${str}</p>`;
+  }
+
+  return paragraphsAsStrings.join(" ");
+};

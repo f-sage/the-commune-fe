@@ -13,7 +13,3 @@
 .post time {
   align-self: flex-end;
 }
-
-.post .post-content {
-  white-space: pre-wrap;
-}

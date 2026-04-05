@@ -1,4 +1,5 @@
 import {
+  htmlWithLineBreaksToParagraphs,
   separateTitleAndContent,
   stripMarkup,
   textToHtmlMarkup,
@@ -23,7 +24,9 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
   title = stripMarkup(title);
 
   content = content.trim();
-  const contentAsHtml = textToHtmlMarkup(content);
+  const contentAsHtml = htmlWithLineBreaksToParagraphs(
+    textToHtmlMarkup(content),
+  );
 
   return (
     <article className="post">
