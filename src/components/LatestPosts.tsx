@@ -1,21 +1,36 @@
 import { PostPreview } from "./PostPreview";
 import "./LatestPosts.css";
-import type { WP_REST_API_Post as WordpressPost } from "wp-types";
+import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+
+const MESSAGES_LIMIT = 3;
 
 export const LatestPosts = async () => {
-  const postCount = 2;
-  const baseWordpressUrl = process.env.BASE_WP_URL;
-  const res = await fetch(
-    `${baseWordpressUrl}/wp-json/wp/v2/posts?per_page=${postCount}`,
-  );
-  const posts = await res.json();
+  const fetchData = async () => {
+    const channelId = process.env.DISCORD_CHANNEL_ID;
+    const token = process.env.DISCORD_BOT_TOKEN;
+
+    const fetchMessagesFromChannelUrl = `https://discord.com/api/v10/channels/${channelId}/messages?limit=${MESSAGES_LIMIT}`;
+    console.log(fetchMessagesFromChannelUrl);
+    const options = {
+      headers: {
+        Authorization: `Bot ${token}`,
+      },
+    };
+    const data = await fetch(fetchMessagesFromChannelUrl, options).then((res) =>
+      res.json(),
+    );
+    return data;
+  };
+
+  const posts = await fetchData();
+
   return (
     <div id="posts">
       <h2>
         <a href="/posts">News</a>
       </h2>
 
-      {posts?.map((item: WordpressPost) => (
+      {posts?.map((item: DiscordMessage) => (
         <PostPreview key={item.id} post={item} />
       ))}
     </div>
