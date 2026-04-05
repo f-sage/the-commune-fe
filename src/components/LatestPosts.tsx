@@ -10,7 +10,7 @@ export const LatestPosts = async () => {
     const token = process.env.DISCORD_BOT_TOKEN;
 
     const fetchMessagesFromChannelUrl = `https://discord.com/api/v10/channels/${channelId}/messages?limit=${MESSAGES_LIMIT}`;
-    console.log(fetchMessagesFromChannelUrl);
+
     const options = {
       headers: {
         Authorization: `Bot ${token}`,
