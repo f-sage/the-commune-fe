@@ -26,6 +26,7 @@ html {
   --lowkey-color: #7a8844;
   --card-background: rgba(68, 80, 22, 0.16);
   --accent-highlighted-color: #ecfab9;
+  --text-highlighted-color: #54660d;
 
   --radius: 5px;
 }
@@ -65,4 +66,11 @@ body:before {
 #posts a {
   color: var(--text-color);
   text-decoration: none;
+}
+
+#posts a:hover {
+  color: var(--text-highlighted-color);
+}
+#posts a:active {
+  color: var(--lowkey-color);
 }
