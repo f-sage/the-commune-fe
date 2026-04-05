@@ -2,7 +2,7 @@ import { PostPreview } from "./PostPreview";
 import "./LatestPosts.css";
 import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
 
-const MESSAGES_LIMIT = 3;
+const MESSAGES_LIMIT = 5;
 
 export const LatestPosts = async () => {
   const fetchData = async () => {
