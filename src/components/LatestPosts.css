@@ -9,11 +9,6 @@
   gap: 1em;
 }
 
-#posts a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
 #posts h2 {
   margin: 0;
   font-size: 6vmin;
