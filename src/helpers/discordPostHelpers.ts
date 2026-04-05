@@ -22,3 +22,11 @@ export const separateTitleAndContent = (postContent: string) => {
   }
   return { title, content };
 };
+
+export const stripMarkup = (text: string) => {
+  text = text.replace(/\*\*(.*?)\*\*/g, "$1");
+  text = text.replace(/__(.*?)__/g, "$1");
+  text = text.replace(/~~(.*?)~~/g, "$1");
+
+  return text;
+};
