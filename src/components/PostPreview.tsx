@@ -17,11 +17,13 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
     datetimeOptions,
   );
 
-  const { title, content } = separateTitleAndContent(post.content);
+  let { title, content } = separateTitleAndContent(post.content);
+  content = content.trim();
+  title = stripMarkup(title);
 
   return (
     <article className="post">
-      <h3>{stripMarkup(title)}</h3>
+      <h3>{title}</h3>
       <p className="post-content">{content}</p>
       <time dateTime={post.timestamp}>{createdAt}</time>
     </article>
