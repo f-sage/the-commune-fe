@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin%20Slab:700|Playwrite%20DE%20Grund:400");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Playwrite+DE+Grund:wght@100..400&display=swap");
 
 /* FONTS */
+
+html {
+  --text-font: "Playwrite DE Grund", sans-serif;
+  --heading-font: "Playwrite AT", sans-serif;
+}
+
 body {
-  font-family: "Playwrite DE Grund", sans-serif;
+  font-family: var(--text-font);
   font-weight: 400;
 }
 
@@ -11,7 +17,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Josefin Slab", sans-serif;
+  font-family: var(--heading-font);
   font-weight: 700;
 }
 
@@ -61,7 +67,7 @@ p {
 
 a {
   color: #343434;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 a:hover {

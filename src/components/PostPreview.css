@@ -1,11 +1,15 @@
 .post {
-  padding: 2em 0;
+  padding: 1em;
+  background-color: var(--card-background);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
 }
 
 .post h3 {
-  margin-top: 0;
+  margin: 0;
 }
 
-.post:not(:last-child) {
-  border-bottom: 1px solid #aeaeae;
+.post time {
+  align-self: flex-end;
 }

@@ -1,15 +1,76 @@
 /* SPACING */
 body {
   margin: 0;
-  padding: 1em 2em 0;
+  padding: 1em 2em;
 
   display: grid;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
-main {
+#wrapper {
   display: grid;
+}
+
+main {
   justify-self: center;
   max-width: 900px;
+}
+
+/* COLORS */
+
+html {
+  --text-color: #445016;
+  --background-color: #c6e1ac;
+  --accent-color: #e5ff80ff;
+  --lowkey-color: #7a8844;
+  --card-background: rgba(68, 80, 22, 0.16);
+  --accent-highlighted-color: #ecfab9;
+  --text-highlighted-color: #54660d;
+
+  --radius: 5px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#wrapper {
+  padding: 1em;
+  border: 1px solid var(--text-color);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--lowkey-color);
+}
+
+/* FIXED BACKGROUND IMAGE */
+body:before {
+  background-image: url("/banner.png");
+
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0.2;
+  height: 100vh;
+
+  background-size: cover;
+}
+
+#posts a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+#posts a:hover {
+  color: var(--text-highlighted-color);
+}
+#posts a:active {
+  color: var(--lowkey-color);
 }

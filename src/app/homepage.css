@@ -44,35 +44,67 @@ h1 {
 
 #description {
   display: grid;
+  position: relative;
+
+  background-color: rgba(221, 233, 175, 0.42);
+  padding: 1em 1.5em 2em;
+  border-radius: var(--radius);
 }
 
-/* DETAILS LINK */
-#details-link {
-  justify-self: end;
+#description:before {
+  content: " ";
+  background-image: url("/leaf1.svg");
+  background-size: cover;
+  position: absolute;
+  bottom: -35px;
+  left: 3px;
+  width: 180px;
+  height: 88px;
 }
 
-/* EXTERNAL LINKS */
-#links {
-  display: flex;
-  list-style: none;
-}
-
-#links li:not(:last-child)::after {
-  content: "•";
-  margin: 0 1em;
-}
-
-@media only screen and (max-width: 700px) {
-  #links {
-    flex-direction: column;
-    gap: 1em;
+@media only screen and (width < 500px) {
+  #description {
+    padding-bottom: 15px;
   }
-  #links li:not(:last-child)::after {
-    content: "";
+  #description:before {
+    bottom: -50px;
   }
 }
 
-/* LOUD HEADING */
-h1 {
-  font-size: 4.21rem; /* 67.36px */
+/* HERO */
+
+#hero {
+  margin-bottom: 3em;
+}
+
+.button-link {
+  color: var(--accent-color);
+  background-color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: 3px 3px var(--accent-color);
+  padding: 0.8em;
+  width: fit-content;
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.button-link:hover,
+.button-link:active {
+  color: var(--accent-highlighted-color);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px var(--accent-color);
+}
+
+h1 .subtitle {
+  font-size: 4vmin;
+  font-family: var(--text-font);
+}
+
+h1 .loud {
+  font-size: 10vmin;
+  text-shadow: 2px 2px var(--accent-color);
 }

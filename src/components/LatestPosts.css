@@ -1,4 +1,41 @@
-#posts p{
-    max-width: 50ch;
-    text-align: justify;
+#posts p {
+  max-width: 50ch;
+  text-align: justify;
+}
+
+#posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#posts h2 {
+  margin: 0;
+  font-size: 6vmin;
+}
+
+#posts .post {
+  position: relative;
+}
+
+#posts .post:nth-child(even):before {
+  content: " ";
+  background-image: url("/flower2.svg");
+  background-size: cover;
+  position: absolute;
+  top: -20px;
+  right: 8px;
+  width: 53px;
+  height: 50px;
+}
+
+#posts .post:nth-child(odd):before {
+  content: " ";
+  background-image: url("/flower1.svg");
+  background-size: cover;
+  position: absolute;
+  bottom: -10px;
+  left: 3px;
+  width: 59px;
+  height: 45px;
 }

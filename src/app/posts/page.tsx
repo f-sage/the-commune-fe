@@ -1,5 +1,6 @@
 import type { WP_REST_API_Post as WordpressPost } from "wp-types";
 import PostPreview from "@/components/PostPreview";
+import "./posts-page.css";
 
 export default async function PostsPage() {
   const baseWordpressUrl = process.env.BASE_WP_URL;
@@ -10,9 +11,11 @@ export default async function PostsPage() {
     <>
       <h1>News</h1>
 
-      {posts?.map((item: WordpressPost) => (
-        <PostPreview key={item.id} post={item} />
-      ))}
+      <div id="posts">
+        {posts?.map((item: WordpressPost) => (
+          <PostPreview key={item.id} post={item} />
+        ))}
+      </div>
     </>
   );
 }
