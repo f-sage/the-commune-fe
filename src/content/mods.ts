@@ -1,4 +1,4 @@
-interface ModInfo {
+export interface ModInfo {
   name: string;
   link: string;
 }

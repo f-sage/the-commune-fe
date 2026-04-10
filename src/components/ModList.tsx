@@ -1,5 +1,5 @@
 "use client";
-import { mods } from "@/content/mods";
+import { type ModInfo, mods } from "@/content/mods";
 import "./ModList.css";
 import { useState } from "react";
 
@@ -23,13 +23,24 @@ const ModList = () => {
     <section>
       <h2>Mods</h2>
       <input onChange={handleSearchInput} />
-      <div id="mods-list">
+      <ul id="mods-list">
         {filteredData.map((mod) => (
-          <div key={mod.name}>{mod.name}</div>
+          <li key={mod.name}>
+            <ModChip mod={mod} />
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };
 
 export default ModList;
+
+const ModChip = ({ mod }: { mod: ModInfo }) => {
+  if (!mod.link) return <span className="mod-chip">{mod.name}</span>;
+  return (
+    <a className="mod-chip" href={mod.link}>
+      {mod.name}
+    </a>
+  );
+};
