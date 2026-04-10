@@ -1,12 +1,11 @@
-import { roles } from "@/content/roles";
 import "./about.css";
-import Expandable from "@/components/Expandable";
+import ModList from "@/components/ModList";
 
 export default async function AboutServer() {
   return (
     <>
       <h1>Server details</h1>
-      <h2>The class system</h2>
+      <ModList />
     </>
   );
 }
