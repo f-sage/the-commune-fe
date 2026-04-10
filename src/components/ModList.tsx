@@ -20,8 +20,9 @@ const ModList = () => {
   });
 
   return (
-    <section>
+    <section id="mods">
       <h2>Mods</h2>
+      <div id="total">total: {mods.length}</div>
       <input onChange={handleSearchInput} />
       <ul id="mods-list">
         {filteredData.map((mod) => (
@@ -39,7 +40,7 @@ export default ModList;
 const ModChip = ({ mod }: { mod: ModInfo }) => {
   if (!mod.link) return <span className="mod-chip">{mod.name}</span>;
   return (
-    <a className="mod-chip" href={mod.link}>
+    <a className="mod-chip" href={mod.link} target="_blank">
       {mod.name}
     </a>
   );

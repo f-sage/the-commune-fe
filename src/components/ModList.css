@@ -29,4 +29,13 @@
 
 .mod-chip:hover {
   background-color: var(--lowkey-color);
+  color: var(--accent-color);
+}
+
+#total {
+  font-style: italic;
+  margin: 0.2em;
+}
+#mods h2 {
+  margin-bottom: 0;
 }
