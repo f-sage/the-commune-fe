@@ -23,7 +23,10 @@ const ModList = () => {
     <section id="mods">
       <h2>Mods</h2>
       <div id="total">total: {mods.length}</div>
-      <input onChange={handleSearchInput} />
+      <label>
+        Search by name
+        <input onChange={handleSearchInput} />
+      </label>
       <ul id="mods-list">
         {filteredData.map((mod) => (
           <li key={mod.name}>

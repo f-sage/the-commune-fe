@@ -27,6 +27,7 @@ html {
   --card-background: rgba(68, 80, 22, 0.16);
   --accent-highlighted-color: #ecfab9;
   --text-highlighted-color: #54660d;
+  --light-background-color: rgba(198, 225, 172, 0.16);
 
   --radius: 5px;
 }

@@ -39,3 +39,13 @@
 #mods h2 {
   margin-bottom: 0;
 }
+
+#mods input {
+  border: 1px solid var(--lowkey-color);
+  border-radius: var(--radius);
+  background-color: var(--light-background-color);
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 16px;
+  color: var(--text-color);
+}
