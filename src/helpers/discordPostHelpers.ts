@@ -42,6 +42,7 @@ export const textToHtmlMarkup = (text: string) => {
     underlined: /__(.*?)__/g,
     strikethrough: /~~(.*?)~~/g,
     link: /\[(.*?)\]\((.*?)\)/g,
+    spoiler: /\|\|(.*?)\|\|/g,
   };
 
   text = text.replace(markupMatchers.bold, "<strong>$1</strong>");
@@ -49,6 +50,10 @@ export const textToHtmlMarkup = (text: string) => {
   text = text.replace(markupMatchers.italic, "<em>$1</em>");
   text = text.replace(markupMatchers.strikethrough, "<del>$1</del>");
   text = text.replace(markupMatchers.link, '<a href="$2">$1</a>');
+  text = text.replace(
+    markupMatchers.spoiler,
+    "<span class='spoiler'>$1</span>",
+  );
 
   return text;
 };
