@@ -36,10 +36,19 @@ export const stripMarkup = (text: string) => {
 // Retrieved 2026-04-05, License - CC BY-SA 3.0
 
 export const textToHtmlMarkup = (text: string) => {
-  text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-  text = text.replace(/__(.*?)__/g, "<u>$1</u>");
-  text = text.replace(/\*(.*?)\*/g, "<em>$1</em>");
-  text = text.replace(/~~(.*?)~~/g, "<del>$1</del>");
+  const markupMatchers = {
+    bold: /\*\*(.*?)\*\*/g,
+    italic: /\*(.*?)\*/g,
+    underlined: /__(.*?)__/g,
+    strikethrough: /~~(.*?)~~/g,
+    link: /\[(.*?)\]\((.*?)\)/g,
+  };
+
+  text = text.replace(markupMatchers.bold, "<strong>$1</strong>");
+  text = text.replace(markupMatchers.underlined, "<u>$1</u>");
+  text = text.replace(markupMatchers.italic, "<em>$1</em>");
+  text = text.replace(markupMatchers.strikethrough, "<del>$1</del>");
+  text = text.replace(markupMatchers.link, '<a href="$2">$1</a>');
 
   return text;
 };
