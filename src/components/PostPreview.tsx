@@ -6,6 +6,7 @@ import {
 } from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
 import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+import PostAttachments from "./PostAttachments";
 
 const datetimeOptions = {
   year: "numeric",
@@ -18,7 +19,6 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
     "en-US",
     datetimeOptions,
   );
-
   let { title, content } = separateTitleAndContent(post.content);
 
   title = stripMarkup(title);
@@ -32,6 +32,7 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
     <article className="post">
       <h3>{title}</h3>
       <div dangerouslySetInnerHTML={{ __html: contentAsHtml }}></div>
+      <PostAttachments data={post.attachments} />
       <time dateTime={post.timestamp}>{createdAt}</time>
     </article>
   );
