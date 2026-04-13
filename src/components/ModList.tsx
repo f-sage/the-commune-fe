@@ -22,11 +22,13 @@ const ModList = () => {
   return (
     <section id="mods">
       <h2>Mods</h2>
-      <div id="total">total: {mods.length}</div>
-      <label>
-        Search by name
-        <input onChange={handleSearchInput} />
-      </label>
+      <div id="mods-details">
+        <div id="total">total: {mods.length}</div>
+        <div className="search">
+          <label htmlFor="seacrh-mods">Search by name...</label>
+          <input id="search-mods" onChange={handleSearchInput} />
+        </div>
+      </div>
       <ul id="mods-list">
         {filteredData.map((mod) => (
           <li key={mod.name}>
