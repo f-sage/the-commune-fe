@@ -21,7 +21,11 @@ const Attachment = ({ item }: { item: APIAttachment }) => {
     return <img src={item.url} alt="post attachment" />;
   else if (item.content_type?.includes("video"))
     return (
-      <video controls>
+      <video
+        controls
+        width={item.width || "auto"}
+        height={item.height || "auto"}
+      >
         <source src={item.url} type={item.content_type}></source>
       </video>
     );
