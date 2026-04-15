@@ -2,5 +2,6 @@
 .post-attachments video {
   object-fit: cover;
   max-height: 200px;
+  max-width: 60vw;
   width: auto;
 }
