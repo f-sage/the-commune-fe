@@ -15,21 +15,22 @@ const PostAttachments = ({ data }: { data: APIAttachment[] }) => {
   );
 };
 
-//toodo handle svg
 const Attachment = ({ item }: { item: APIAttachment }) => {
-  if (item.content_type?.includes("image"))
+  const mimeType = item.content_type || "";
+
+  if (mimeType.includes("image") && !mimeType.includes("svg")) {
     return <img src={item.url} alt="post attachment" />;
-  else if (item.content_type?.includes("video"))
+  } else if (mimeType.includes("video"))
     return (
       <video
         controls
         width={item.width || "auto"}
         height={item.height || "auto"}
       >
-        <source src={item.url} type={item.content_type}></source>
+        <source src={item.url} type={mimeType}></source>
       </video>
     );
-  else return <a href={item.url}>attachment</a>;
+  else return <a href={item.url}>{item.filename}</a>;
 };
 
 export default PostAttachments;
