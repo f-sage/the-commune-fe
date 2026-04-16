@@ -9,9 +9,17 @@
   gap: 1em;
 }
 
+#posts a {
+  color: var(--text-color);
+}
+
 #posts h2 {
   margin: 0;
   font-size: 6vmin;
+}
+
+#posts h2 a {
+  text-decoration: none;
 }
 
 #posts .post {
@@ -38,4 +46,13 @@
   left: 3px;
   width: 59px;
   height: 45px;
+}
+
+#posts a {
+  text-shadow: 1px 1px 2px var(--accent-color);
+}
+
+#posts a:hover,
+#posts a:active {
+  text-shadow: 0 1px 5px var(--accent-color);
 }
