@@ -2,8 +2,6 @@ import type { APIAttachment } from "discord-api-types/v10";
 import "./PostAttachments.css";
 
 const PostAttachments = ({ data }: { data: APIAttachment[] }) => {
-  console.log(data);
-
   return (
     <div className="post-attachments">
       {data.map((item) => (
