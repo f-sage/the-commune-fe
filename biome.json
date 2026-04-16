@@ -23,6 +23,9 @@
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
+      },
+      "performance": {
+        "noImgElement": "off"
       }
     },
     "domains": {
