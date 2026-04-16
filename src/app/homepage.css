@@ -62,6 +62,17 @@ h1 {
   height: 197px;
 }
 
+#description:after {
+  content: " ";
+  background-image: url("/leaf3.svg");
+  background-size: cover;
+  position: absolute;
+  top: -48px;
+  right: -30px;
+  width: 268px;
+  height: 135px;
+}
+
 @media only screen and (width < 500px) {
   #description {
     padding-bottom: 15px;
@@ -70,6 +81,9 @@ h1 {
 
 @media only screen and (width < 900px) {
   #description:before {
+    background: 0;
+  }
+  #description:after {
     background: 0;
   }
 }
