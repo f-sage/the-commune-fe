@@ -25,6 +25,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: var(--text-color);
 }
 
 .mod-chip {
@@ -41,7 +43,6 @@
 .mod-chip:hover {
   background-color: var(--lowkey-color);
   color: var(--accent-color);
-  cursor: pointer;
 }
 
 #total {
