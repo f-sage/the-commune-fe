@@ -28,13 +28,13 @@
 
 #posts .post:nth-child(even):before {
   content: " ";
-  background-image: url("/flower2.svg");
+  background-image: url("/anemone1.svg");
   background-size: cover;
   position: absolute;
   top: -20px;
   right: 8px;
-  width: 53px;
-  height: 50px;
+  width: 60px;
+  height: 48px;
 }
 
 #posts .post:nth-child(odd):before {
