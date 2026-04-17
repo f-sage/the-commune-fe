@@ -1,52 +1,20 @@
 "use client";
-import { type ModInfo, mods } from "@/content/mods";
+import type { ModInfo } from "@/content/mods";
 import "./ModList.css";
-import { useState } from "react";
+import { fetchDiscordModList } from "@/helpers/fetchDiscordPosts";
+import { getModListFromDiscordMessages } from "@/helpers/getModListFromDiscordMessages";
+import ModsSearchableContainer from "./ModsSearchableContainer";
 
-const ModList = () => {
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //convert input text to lower case
-    const lowerCase = e.target?.value.toLowerCase() || "";
-    setSearchText(lowerCase);
-  };
-
-  const filteredData = mods.filter((element) => {
-    if (!searchText) return element;
-    else {
-      return element.name.toLowerCase().includes(searchText);
-    }
-  });
+const ModList = async () => {
+  const modListMessages = await fetchDiscordModList();
+  const data: ModInfo[] = getModListFromDiscordMessages(modListMessages);
 
   return (
     <section id="mods">
       <h2>Mods</h2>
-      <div id="mods-details">
-        <div id="total">total: {mods.length}</div>
-        <div className="search">
-          <label htmlFor="seacrh-mods">Search by name...</label>
-          <input id="search-mods" onChange={handleSearchInput} />
-        </div>
-      </div>
-      <ul id="mods-list">
-        {filteredData.map((mod) => (
-          <li key={mod.name}>
-            <ModChip mod={mod} />
-          </li>
-        ))}
-      </ul>
+      <ModsSearchableContainer data={data} />
     </section>
   );
 };
 
 export default ModList;
-
-const ModChip = ({ mod }: { mod: ModInfo }) => {
-  if (!mod.link) return <span className="mod-chip">{mod.name}</span>;
-  return (
-    <a className="mod-chip" href={mod.link} target="_blank">
-      {mod.name}
-    </a>
-  );
-};
