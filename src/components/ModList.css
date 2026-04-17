@@ -50,7 +50,7 @@
   color: var(--text-color);
 }
 
-label[for="seacrh-mods"] {
+label[for="search-mods"] {
   position: absolute;
   margin-left: 1em;
 }
