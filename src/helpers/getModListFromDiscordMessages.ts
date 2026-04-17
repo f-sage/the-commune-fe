@@ -25,5 +25,5 @@ export const getModListFromDiscordMessages = (
 };
 
 function getGroup(regexp: RegExp, str: string, index: number) {
-  return Array.from(str.matchAll(regexp), (m) => m[1])[index];
+  return Array.from(str.matchAll(regexp), (m) => m[index + 1])[0];
 }
