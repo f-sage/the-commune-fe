@@ -1,5 +1,5 @@
 "use client";
-import { type ModInfo, mods } from "@/content/mods";
+import type { ModInfo } from "@/content/mods";
 import "./ModList.css";
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ export const ModsSearchableContainer = ({ data }: { data: ModInfo[] }) => {
   return (
     <>
       <div id="mods-details">
-        <div id="total">total: {mods.length}</div>
+        <div id="total">total: {data.length}</div>
         <div className="search">
           <label htmlFor="search-mods">Search by name...</label>
           <input id="search-mods" onChange={handleSearchInput} />
