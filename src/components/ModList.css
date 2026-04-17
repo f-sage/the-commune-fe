@@ -1,0 +1,67 @@
+#mods-list {
+  border-radius: var(--radius);
+  border: 1px solid var(--lowkey-color);
+  padding: 1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+
+  min-width: 50vw;
+}
+
+#mods-list li {
+  margin: 0;
+  flex: 1 1 30%;
+  align-self: stretch;
+
+  list-style-type: none;
+}
+
+.mod-chip {
+  height: 100%;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-color);
+}
+
+.mod-chip {
+  border: 1px solid var(--lowkey-color);
+  border-radius: var(--radius);
+  padding: 0 1em;
+  margin: 0;
+
+  background-color: var(--card-background);
+
+  text-decoration: none;
+}
+
+.mod-chip:hover {
+  background-color: var(--lowkey-color);
+  color: var(--accent-color);
+}
+
+#total {
+  margin: 0.1em 0.2em;
+}
+#mods h2 {
+  margin-bottom: 0;
+}
+
+#mods input {
+  border: 1px solid var(--lowkey-color);
+  border-radius: var(--radius);
+  background-color: var(--light-background-color);
+  margin-left: 0.5em;
+  padding: 4px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+#mods-details {
+  display: flex;
+}
