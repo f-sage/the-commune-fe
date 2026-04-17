@@ -1,4 +1,3 @@
-"use client";
 import type { ModInfo } from "@/content/mods";
 import "./ModList.css";
 import { fetchDiscordModList } from "@/helpers/fetchDiscordPosts";

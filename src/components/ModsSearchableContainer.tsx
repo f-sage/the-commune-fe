@@ -1,7 +1,6 @@
 "use client";
-import type { ModInfo } from "@/content/mods";
-import "./ModList.css";
 import { useState } from "react";
+import type { ModInfo } from "@/content/mods";
 
 export const ModsSearchableContainer = ({ data }: { data: ModInfo[] }) => {
   const [searchText, setSearchText] = useState("");
