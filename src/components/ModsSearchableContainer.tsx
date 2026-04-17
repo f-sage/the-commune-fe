@@ -27,8 +27,11 @@ export const ModsSearchableContainer = ({ data }: { data: ModInfo[] }) => {
       <div id="mods-details">
         <div id="total">total: {data.length}</div>
         <div className="search">
-          <label htmlFor="search-mods">Search by name...</label>
-          <input id="search-mods" onChange={handleSearchInput} />
+          <input
+            id="search-mods"
+            onChange={handleSearchInput}
+            placeholder="Search by name..."
+          />
         </div>
       </div>
       <ul id="mods-list">

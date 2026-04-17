@@ -50,11 +50,6 @@
   color: var(--text-color);
 }
 
-label[for="search-mods"] {
-  position: absolute;
-  margin-left: 1em;
-}
-
 #mods-details {
   display: flex;
 }
