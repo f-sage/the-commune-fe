@@ -18,6 +18,10 @@ export const ModsSearchableContainer = ({ data }: { data: ModInfo[] }) => {
     }
   });
 
+  if (!data || data.length === 0) {
+    return "No mods found.";
+  }
+
   return (
     <>
       <div id="mods-details">
