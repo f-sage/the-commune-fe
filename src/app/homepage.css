@@ -53,20 +53,37 @@ h1 {
 
 #description:before {
   content: " ";
-  background-image: url("/leaf1.svg");
+  background-image: url("/leaf2.svg");
   background-size: cover;
   position: absolute;
-  bottom: -35px;
-  left: 3px;
-  width: 180px;
-  height: 88px;
+  bottom: -25px;
+  left: -20px;
+  width: 230px;
+  height: 197px;
+}
+
+#description:after {
+  content: " ";
+  background-image: url("/leaf3.svg");
+  background-size: cover;
+  position: absolute;
+  top: -48px;
+  right: -30px;
+  width: 268px;
+  height: 135px;
 }
 
 @media only screen and (width < 500px) {
   #description {
     padding-bottom: 15px;
   }
+}
+
+@media only screen and (width < 900px) {
   #description:before {
+    background: 0;
+  }
+  #description:after {
     background: 0;
   }
 }
