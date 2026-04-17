@@ -10,7 +10,7 @@ const ModList = async () => {
 
   return (
     <section id="mods">
-      <h2>Mods</h2>
+      <h1>Mods</h1>
       <ModsSearchableContainer data={data} />
     </section>
   );
