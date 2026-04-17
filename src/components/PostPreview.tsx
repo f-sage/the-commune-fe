@@ -1,5 +1,12 @@
-import type { WP_REST_API_Post as WordpressPost } from "wp-types";
+import {
+  htmlWithLineBreaksToParagraphs,
+  separateTitleAndContent,
+  stripMarkup,
+  textToHtmlMarkup,
+} from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
+import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+import PostAttachments from "./PostAttachments";
 
 const datetimeOptions = {
   year: "numeric",
@@ -7,20 +14,26 @@ const datetimeOptions = {
   day: "numeric",
 } as const;
 
-export const PostPreview = ({ post }: { post: WordpressPost }) => {
-  const content = { __html: post.excerpt.rendered };
-  const createdAt = new Date(post.date).toLocaleDateString(
+export const PostPreview = ({ post }: { post: DiscordMessage }) => {
+  const createdAt = new Date(post.timestamp).toLocaleDateString(
     "en-US",
     datetimeOptions,
+  );
+  let { title, content } = separateTitleAndContent(post.content);
+
+  title = stripMarkup(title);
+
+  content = content.trim();
+  const contentAsHtml = htmlWithLineBreaksToParagraphs(
+    textToHtmlMarkup(content),
   );
 
   return (
     <article className="post">
-      <h3>
-        <a href={`/post/${post.id}`}>{post.title.rendered}</a>
-      </h3>
-      <div dangerouslySetInnerHTML={content} />
-      <time dateTime={post.date}>{createdAt}</time>
+      <h3>{title}</h3>
+      <div dangerouslySetInnerHTML={{ __html: contentAsHtml }}></div>
+      <PostAttachments data={post.attachments} />
+      <time dateTime={post.timestamp}>{createdAt}</time>
     </article>
   );
 };
