@@ -1,7 +1,5 @@
 import {
   htmlWithLineBreaksToParagraphs,
-  separateTitleAndContent,
-  stripMarkup,
   textToHtmlMarkup,
 } from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
@@ -19,9 +17,7 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
     "en-US",
     datetimeOptions,
   );
-  let { title, content } = separateTitleAndContent(post.content);
-
-  title = stripMarkup(title);
+  let { content } = post;
 
   content = content.trim();
   const contentAsHtml = htmlWithLineBreaksToParagraphs(
@@ -30,7 +26,6 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
 
   return (
     <article className="post">
-      <h3>{title}</h3>
       <div dangerouslySetInnerHTML={{ __html: contentAsHtml }}></div>
       <PostAttachments data={post.attachments} />
       <time dateTime={post.timestamp}>{createdAt}</time>
