@@ -1,3 +1,5 @@
+import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+
 // Source - https://stackoverflow.com/a/17701213
 // Posted by David Sherret, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-04-05, License - CC BY-SA 3.0
@@ -67,4 +69,18 @@ export const htmlWithLineBreaksToParagraphs = (htmlWithLineBreaks: string) => {
   }
 
   return paragraphsAsStrings.join(" ");
+};
+
+export const resolveDiscordLinks = (post: DiscordMessage): DiscordMessage => {
+  // todo find  channel links
+
+  // user mentions
+  post.mentions.forEach((userMention) => {
+    const matcher = `<@${userMention.id}>`;
+    //glonal_name is display name
+    const username = userMention.global_name || userMention.username;
+    post.content = post.content.replaceAll(matcher, `@${username}`);
+  });
+
+  return post;
 };

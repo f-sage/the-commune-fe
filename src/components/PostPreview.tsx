@@ -1,5 +1,6 @@
 import {
   htmlWithLineBreaksToParagraphs,
+  resolveDiscordLinks,
   textToHtmlMarkup,
 } from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
@@ -17,6 +18,9 @@ export const PostPreview = ({ post }: { post: DiscordMessage }) => {
     "en-US",
     datetimeOptions,
   );
+
+  post = resolveDiscordLinks(post);
+
   let { content } = post;
 
   content = content.trim();
