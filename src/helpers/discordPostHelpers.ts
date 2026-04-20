@@ -71,16 +71,46 @@ export const htmlWithLineBreaksToParagraphs = (htmlWithLineBreaks: string) => {
   return paragraphsAsStrings.join(" ");
 };
 
-export const resolveDiscordLinks = (post: DiscordMessage): DiscordMessage => {
-  // todo find  channel links
+export const resolveDiscordLinks = async (
+  post: DiscordMessage,
+): Promise<DiscordMessage> => {
+  await resolveChannelMentions(post);
+  resolveUserMentions(post);
 
-  // user mentions
+  return post;
+};
+
+const resolveUserMentions = (post: DiscordMessage) => {
   post.mentions.forEach((userMention) => {
     const matcher = `<@${userMention.id}>`;
     //glonal_name is display name
     const username = userMention.global_name || userMention.username;
     post.content = post.content.replaceAll(matcher, `@${username}`);
   });
+
+  return post;
+};
+
+export const resolveChannelMentions = async (
+  post: DiscordMessage,
+): Promise<DiscordMessage> => {
+  const channelMentions = post.content.matchAll(/<#(\d+)>/g);
+
+  for (const mention of channelMentions) {
+    const token = process.env.DISCORD_BOT_TOKEN;
+    const channelId = mention[1];
+    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
+    const options = {
+      headers: {
+        Authorization: `Bot ${token}`,
+      },
+    };
+    const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
+      res.json(),
+    );
+
+    post.content = post.content.replaceAll(`<#${channelId}>`, `#${data.name}`);
+  }
 
   return post;
 };

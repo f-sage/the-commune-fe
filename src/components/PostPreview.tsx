@@ -13,13 +13,13 @@ const datetimeOptions = {
   day: "numeric",
 } as const;
 
-export const PostPreview = ({ post }: { post: DiscordMessage }) => {
+export const PostPreview = async ({ post }: { post: DiscordMessage }) => {
   const createdAt = new Date(post.timestamp).toLocaleDateString(
     "en-US",
     datetimeOptions,
   );
 
-  post = resolveDiscordLinks(post);
+  post = await resolveDiscordLinks(post);
 
   let { content } = post;
 
