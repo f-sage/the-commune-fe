@@ -98,18 +98,27 @@ export const resolveChannelMentions = async (
 
   for (const mention of channelMentions) {
     const token = process.env.DISCORD_BOT_TOKEN;
-    const channelId = mention[1];
-    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
     const options = {
       headers: {
         Authorization: `Bot ${token}`,
       },
     };
-    const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
-      res.json(),
-    );
 
-    post.content = post.content.replaceAll(`<#${channelId}>`, `#${data.name}`);
+    const channelId = mention[1];
+    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
+
+    try {
+      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
+        res.json(),
+      );
+
+      post.content = post.content.replaceAll(
+        `<#${channelId}>`,
+        `#${data.name}`,
+      );
+    } catch {
+      post.content = post.content.replaceAll(`<#${channelId}>`, "<channel>");
+    }
   }
 
   return post;
