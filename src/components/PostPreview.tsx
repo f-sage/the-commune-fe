@@ -22,6 +22,7 @@ export const PostPreview = async ({ post }: { post: DiscordMessage }) => {
   post = await resolveDiscordLinks(post);
 
   let { content } = post;
+  if (!content && post.attachments.length === 0) return;
 
   content = content.trim();
   const contentAsHtml = htmlWithLineBreaksToParagraphs(
