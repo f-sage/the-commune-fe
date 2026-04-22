@@ -1,5 +1,6 @@
 import {
   htmlWithLineBreaksToParagraphs,
+  removeAttentionGrabbers,
   resolveDiscordLinks,
   textToHtmlMarkup,
 } from "@/helpers/discordPostHelpers";
@@ -19,12 +20,13 @@ export const PostPreview = async ({ post }: { post: DiscordMessage }) => {
     datetimeOptions,
   );
 
-  post = await resolveDiscordLinks(post);
+  post.content = post.content.trim();
+  await resolveDiscordLinks(post);
+  removeAttentionGrabbers(post);
 
-  let { content } = post;
+  const { content } = post;
   if (!content && post.attachments.length === 0) return;
 
-  content = content.trim();
   const contentAsHtml = htmlWithLineBreaksToParagraphs(
     textToHtmlMarkup(content),
   );

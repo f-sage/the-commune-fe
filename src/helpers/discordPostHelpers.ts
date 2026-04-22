@@ -91,9 +91,7 @@ const resolveUserMentions = (post: DiscordMessage) => {
   return post;
 };
 
-export const resolveChannelMentions = async (
-  post: DiscordMessage,
-): Promise<DiscordMessage> => {
+export const resolveChannelMentions = async (post: DiscordMessage) => {
   const channelMentions = post.content.matchAll(/<#(\d+)>/g);
 
   for (const mention of channelMentions) {
@@ -120,6 +118,12 @@ export const resolveChannelMentions = async (
       post.content = post.content.replaceAll(`<#${channelId}>`, "<channel>");
     }
   }
+};
 
-  return post;
+export const removeAttentionGrabbers = (post: DiscordMessage) => {
+  // @everyone that is at the start of the post or is in a separate row anywhere in the text
+  const matchers = [/^@everyone/, /\n@everyone\n/];
+  matchers.forEach((matcher) => {
+    post.content = post.content.replace(matcher, "");
+  });
 };
