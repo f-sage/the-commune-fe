@@ -76,6 +76,8 @@ export const resolveDiscordLinks = async (
 ): Promise<DiscordMessage> => {
   await resolveChannelMentions(post);
   await resolvePostLinks(post);
+  await resolveChannelLinks(post);
+
   resolveUserMentions(post);
 
   return post;
@@ -156,6 +158,49 @@ const resolvePostLinks = async (post: DiscordMessage) => {
       post.content = post.content.replaceAll(
         `<#${channelId}>`,
         "(channel post)",
+      );
+    }
+  }
+};
+
+const resolveChannelLinks = async (post: DiscordMessage) => {
+  // forum links contain 2 IDs: guild ID and channel ID
+  // the regex uses a negative lookahead to prevent matching links with 3 IDs
+  // as those are post links
+  const channelMatcher =
+    /https:\/\/discord.com\/channels\/\d{19}\/(\d{19})(?!\/\d{19})/g;
+
+  const longChannelMentions = post.content.matchAll(channelMatcher);
+
+  for (const mention of longChannelMentions) {
+    const token = process.env.DISCORD_BOT_TOKEN;
+    const options = {
+      headers: {
+        Authorization: `Bot ${token}`,
+      },
+    };
+
+    const channelLink = mention[0];
+    const channelId = mention[1];
+    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
+
+    try {
+      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
+        res.json(),
+      );
+
+      if (data.name) {
+        post.content = post.content.replaceAll(
+          channelLink,
+          `<a href="${channelLink}">#${data.name}</a>`,
+        );
+      } else {
+        post.content = post.content.replaceAll(channelLink, "(channel link)");
+      }
+    } catch {
+      post.content = post.content.replaceAll(
+        `<#${channelId}>`,
+        "(channel link)",
       );
     }
   }
