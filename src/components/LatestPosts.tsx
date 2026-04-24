@@ -6,7 +6,6 @@ import { fetchDiscordPosts } from "@/helpers/fetchDiscordPosts";
 const MESSAGES_LIMIT = 5;
 export const LatestPosts = async () => {
   const posts = await fetchDiscordPosts(MESSAGES_LIMIT);
-  console.log(posts);
   // do not display anything if request failed
   if (posts.message) {
     return;
