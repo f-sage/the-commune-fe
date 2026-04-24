@@ -124,12 +124,12 @@ export const resolveChannelMentions = async (post: DiscordMessage) => {
 };
 
 const resolvePostLinks = async (post: DiscordMessage) => {
-  const channelMatcher =
+  const postLinkMatcher =
     /https:\/\/discord.com\/channels\/\d{19}\/(\d{19})\/\d{19}/g;
 
-  const longChannelMentions = post.content.matchAll(channelMatcher);
+  const postLinks = post.content.matchAll(postLinkMatcher);
 
-  for (const mention of longChannelMentions) {
+  for (const match of postLinks) {
     const token = process.env.DISCORD_BOT_TOKEN;
     const options = {
       headers: {
@@ -137,8 +137,8 @@ const resolvePostLinks = async (post: DiscordMessage) => {
       },
     };
 
-    const channelLink = mention[0];
-    const channelId = mention[1];
+    const channelLink = match[0];
+    const channelId = match[1];
     const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
 
     try {
@@ -164,15 +164,15 @@ const resolvePostLinks = async (post: DiscordMessage) => {
 };
 
 const resolveChannelLinks = async (post: DiscordMessage) => {
-  // forum links contain 2 IDs: guild ID and channel ID
+  // channel links contain 2 IDs: guild ID and channel ID
   // the regex uses a negative lookahead to prevent matching links with 3 IDs
   // as those are post links
   const channelMatcher =
     /https:\/\/discord.com\/channels\/\d{19}\/(\d{19})(?!\/\d{19})/g;
 
-  const longChannelMentions = post.content.matchAll(channelMatcher);
+  const channelLinks = post.content.matchAll(channelMatcher);
 
-  for (const mention of longChannelMentions) {
+  for (const match of channelLinks) {
     const token = process.env.DISCORD_BOT_TOKEN;
     const options = {
       headers: {
@@ -180,8 +180,8 @@ const resolveChannelLinks = async (post: DiscordMessage) => {
       },
     };
 
-    const channelLink = mention[0];
-    const channelId = mention[1];
+    const channelLink = match[0];
+    const channelId = match[1];
     const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
 
     try {
