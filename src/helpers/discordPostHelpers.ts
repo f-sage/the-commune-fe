@@ -75,6 +75,7 @@ export const resolveDiscordLinks = async (
   post: DiscordMessage,
 ): Promise<DiscordMessage> => {
   await resolveChannelMentions(post);
+  await resolvePostLinks(post);
   resolveUserMentions(post);
 
   return post;
@@ -116,6 +117,43 @@ export const resolveChannelMentions = async (post: DiscordMessage) => {
       );
     } catch {
       post.content = post.content.replaceAll(`<#${channelId}>`, "<channel>");
+    }
+  }
+};
+
+const resolvePostLinks = async (post: DiscordMessage) => {
+  const channelMatcher =
+    /https:\/\/discord.com\/channels\/\d{19}\/(\d{19})\/\d{19}/g;
+
+  const longChannelMentions = post.content.matchAll(channelMatcher);
+
+  for (const mention of longChannelMentions) {
+    const token = process.env.DISCORD_BOT_TOKEN;
+    const options = {
+      headers: {
+        Authorization: `Bot ${token}`,
+      },
+    };
+
+    const channelLink = mention[0];
+    const channelId = mention[1];
+    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
+
+    try {
+      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
+        res.json(),
+      );
+
+      if (data.name) {
+        post.content = post.content.replaceAll(channelLink, `#${data.name}`);
+      } else {
+        post.content = post.content.replaceAll(channelLink, "<channel post>");
+      }
+    } catch {
+      post.content = post.content.replaceAll(
+        `<#${channelId}>`,
+        "<channel post>",
+      );
     }
   }
 };
