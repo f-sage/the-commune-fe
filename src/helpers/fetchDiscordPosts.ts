@@ -29,3 +29,20 @@ const fetchMessagesFromDiscordChannel = async (
   );
   return data;
 };
+
+export const fetchDiscordChannelInfo = async (channelId: string) => {
+  const token = process.env.DISCORD_BOT_TOKEN;
+  const options = {
+    headers: {
+      Authorization: `Bot ${token}`,
+    },
+  };
+
+  const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
+
+  const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
+    res.json(),
+  );
+
+  return data;
+};

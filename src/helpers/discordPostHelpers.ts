@@ -1,4 +1,5 @@
 import type { APIMessage as DiscordMessage } from "discord-api-types/v10";
+import { fetchDiscordChannelInfo } from "./fetchDiscordPosts";
 
 // Source - https://stackoverflow.com/a/17701213
 // Posted by David Sherret, modified by community. See post 'Timeline' for change history
@@ -98,25 +99,21 @@ export const resolveChannelMentions = async (post: DiscordMessage) => {
   const channelMentions = post.content.matchAll(/<#(\d+)>/g);
 
   for (const mention of channelMentions) {
-    const token = process.env.DISCORD_BOT_TOKEN;
-    const options = {
-      headers: {
-        Authorization: `Bot ${token}`,
-      },
-    };
-
     const channelId = mention[1];
-    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
 
     try {
-      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
-        res.json(),
-      );
-
-      post.content = post.content.replaceAll(
-        `<#${channelId}>`,
-        `#${data.name}`,
-      );
+      const data = await fetchDiscordChannelInfo(channelId);
+      if (data.name) {
+        post.content = post.content.replaceAll(
+          `<#${channelId}>`,
+          `#${data.name}`,
+        );
+      } else {
+        post.content = post.content.replaceAll(
+          `<#${channelId}>`,
+          `(channel link)`,
+        );
+      }
     } catch {
       post.content = post.content.replaceAll(`<#${channelId}>`, "(channel)");
     }
@@ -130,21 +127,11 @@ const resolvePostLinks = async (post: DiscordMessage) => {
   const postLinks = post.content.matchAll(postLinkMatcher);
 
   for (const match of postLinks) {
-    const token = process.env.DISCORD_BOT_TOKEN;
-    const options = {
-      headers: {
-        Authorization: `Bot ${token}`,
-      },
-    };
-
     const channelLink = match[0];
     const channelId = match[1];
-    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
 
     try {
-      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
-        res.json(),
-      );
+      const data = await fetchDiscordChannelInfo(channelId);
 
       if (data.name) {
         post.content = post.content.replaceAll(
@@ -173,22 +160,11 @@ const resolveChannelLinks = async (post: DiscordMessage) => {
   const channelLinks = post.content.matchAll(channelMatcher);
 
   for (const match of channelLinks) {
-    const token = process.env.DISCORD_BOT_TOKEN;
-    const options = {
-      headers: {
-        Authorization: `Bot ${token}`,
-      },
-    };
-
     const channelLink = match[0];
     const channelId = match[1];
-    const fetchChannelInfoUrl = `https://discord.com/api/v10/channels/${channelId}`;
 
     try {
-      const data = await fetch(fetchChannelInfoUrl, options).then((res) =>
-        res.json(),
-      );
-
+      const data = await fetchDiscordChannelInfo(channelId);
       if (data.name) {
         post.content = post.content.replaceAll(
           channelLink,
