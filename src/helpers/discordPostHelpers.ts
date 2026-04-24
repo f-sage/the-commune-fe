@@ -86,7 +86,7 @@ export const resolveDiscordLinks = async (
 const resolveUserMentions = (post: DiscordMessage) => {
   post.mentions.forEach((userMention) => {
     const matcher = `<@${userMention.id}>`;
-    //glonal_name is display name
+    //global_name is display name
     const username = userMention.global_name || userMention.username;
     post.content = post.content.replaceAll(matcher, `@${username}`);
   });
