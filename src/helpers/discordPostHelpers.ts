@@ -145,7 +145,10 @@ const resolvePostLinks = async (post: DiscordMessage) => {
       );
 
       if (data.name) {
-        post.content = post.content.replaceAll(channelLink, `#${data.name}`);
+        post.content = post.content.replaceAll(
+          channelLink,
+          `<a href="${channelLink}">(a message in #${data.name})</a>`,
+        );
       } else {
         post.content = post.content.replaceAll(channelLink, "<channel post>");
       }
