@@ -1,7 +1,7 @@
 import {
   htmlWithLineBreaksToParagraphs,
-  separateTitleAndContent,
-  stripMarkup,
+  removeAttentionGrabbers,
+  resolveDiscordLinks,
   textToHtmlMarkup,
 } from "@/helpers/discordPostHelpers";
 import "./PostPreview.css";
@@ -14,23 +14,25 @@ const datetimeOptions = {
   day: "numeric",
 } as const;
 
-export const PostPreview = ({ post }: { post: DiscordMessage }) => {
+export const PostPreview = async ({ post }: { post: DiscordMessage }) => {
   const createdAt = new Date(post.timestamp).toLocaleDateString(
     "en-US",
     datetimeOptions,
   );
-  let { title, content } = separateTitleAndContent(post.content);
 
-  title = stripMarkup(title);
+  post.content = post.content.trim();
+  await resolveDiscordLinks(post);
+  removeAttentionGrabbers(post);
 
-  content = content.trim();
+  const { content } = post;
+  if (!content && post.attachments.length === 0) return;
+
   const contentAsHtml = htmlWithLineBreaksToParagraphs(
     textToHtmlMarkup(content),
   );
 
   return (
     <article className="post">
-      <h3>{title}</h3>
       <div dangerouslySetInnerHTML={{ __html: contentAsHtml }}></div>
       <PostAttachments data={post.attachments} />
       <time dateTime={post.timestamp}>{createdAt}</time>
