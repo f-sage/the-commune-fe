@@ -116,7 +116,7 @@ export const resolveChannelMentions = async (post: DiscordMessage) => {
         `#${data.name}`,
       );
     } catch {
-      post.content = post.content.replaceAll(`<#${channelId}>`, "<channel>");
+      post.content = post.content.replaceAll(`<#${channelId}>`, "(channel)");
     }
   }
 };
@@ -150,12 +150,12 @@ const resolvePostLinks = async (post: DiscordMessage) => {
           `<a href="${channelLink}">(a message in #${data.name})</a>`,
         );
       } else {
-        post.content = post.content.replaceAll(channelLink, "<channel post>");
+        post.content = post.content.replaceAll(channelLink, "(channel post)");
       }
     } catch {
       post.content = post.content.replaceAll(
         `<#${channelId}>`,
-        "<channel post>",
+        "(channel post)",
       );
     }
   }
